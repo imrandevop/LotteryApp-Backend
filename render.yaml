@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lottery-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn lottery_project.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: lottery_project.settings
+      - key: PYTHON_VERSION
+        value: 3.10
